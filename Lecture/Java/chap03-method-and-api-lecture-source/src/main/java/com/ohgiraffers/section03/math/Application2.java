@@ -14,7 +14,7 @@ public class Application2 {
         int random3 = (int) (Math.random() * 6) + 10;
         System.out.println(random3);
 
-     /* 목차 4. -120 ~ 127지의 난수 생성 */
+     /* 목차 4. -120 ~ 127까지의 난수 생성 */
         int random4 = (int) (Math.random() * 256) + (-128);
         System.out.println(random4);
 
