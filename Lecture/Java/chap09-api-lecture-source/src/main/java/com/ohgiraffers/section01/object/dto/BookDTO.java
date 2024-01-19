@@ -75,5 +75,11 @@ public class BookDTO {
         return number == bookDTO.number && price == bookDTO.price && Objects.equals(title, bookDTO.title) && Objects.equals(author, bookDTO.author);
     }
 
+    /* 목차 3. hashCode() 오버라이딩 */
+    /* 설명: 우리가 정한 동등 기준을 만족하면 같은 값이 나오도록 오버라이딩 */
+    @Override
+    public int hashCode() {
+        return Objects.hash(number, title, author, price);
+    }
 
 }
