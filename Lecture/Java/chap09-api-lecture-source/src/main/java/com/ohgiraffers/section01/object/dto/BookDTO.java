@@ -59,6 +59,21 @@ public class BookDTO {
                 '}';
     }
 
+    /* 목차 2. equals() 오버라이딩 */
+//    @Override
+//    public boolean equals(Object obj) {
+//        return this.author.equals(((BookDTO)obj).getAuthor()) && this.price == (((BookDTO) obj).getPrice());
+////        return false;
+//    }
+
+    /* 설명: 우리가 BookDTO 타입의 객체가 동등하다라는 것에 대한 기준을 정하기 위해 오버라이딩 */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BookDTO bookDTO = (BookDTO) o;
+        return number == bookDTO.number && price == bookDTO.price && Objects.equals(title, bookDTO.title) && Objects.equals(author, bookDTO.author);
+    }
 
 
 }
