@@ -8,6 +8,8 @@ public class Application3 {
         DataOutputStream dos = null;
         try {
             dos = new DataOutputStream(new FileOutputStream("src/main/java/com/ohgiraffers/section03/filterstream/testData.txt"));
+
+            /* 설명: data타입 별로 해당 데이터 타입에 맞는 출력 메소드를 활용하여 파일에 출력하기(순서 중요!) */
             dos.writeUTF("홍길동");
             dos.writeInt(20);
             dos.writeChar('A');
@@ -36,6 +38,7 @@ public class Application3 {
         try {
             dis = new DataInputStream(new FileInputStream("src/main/java/com/ohgiraffers/section03/filterstream/testData.txt"));
 
+            /* 설명: 입력받을 때도 출력 때의 순서를 지켜서 입력 받는다. */
             while (true) {
             System.out.println(dis.readUTF());
             System.out.println(dis.readInt());
@@ -44,6 +47,7 @@ public class Application3 {
 
 
         } catch (EOFException e) {
+            /* 설명: data 입출력은 EOFExcpetion을 활용하여 파일의 끝까지 입력 받는 것을 처리할 수 있다. */
             System.out.println("파일 다 읽어냄");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
