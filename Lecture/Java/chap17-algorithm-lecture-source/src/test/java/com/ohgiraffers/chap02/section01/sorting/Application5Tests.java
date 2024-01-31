@@ -1,4 +1,4 @@
-package com.ohgiraffers.cahp02.section01.sorting;
+package com.ohgiraffers.chap02.section01.sorting;
 
 import com.ohgiraffers.chap02.section01.sorting.Application5;
 import org.junit.jupiter.api.Assertions;
