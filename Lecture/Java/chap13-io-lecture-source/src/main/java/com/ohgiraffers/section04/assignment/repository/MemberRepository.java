@@ -18,7 +18,7 @@ public class MemberRepository {
 
 
         /* 설명: 회원가입 기능 추가 후 이제는 파일이 기존에 존재하면(처음이 아니므로) 회원 3명 초기화 하기를 하지 않는다. */
-        File file = new File("src/main/java/com/ohgiraffers/section04/assignment/db/memberDB.dat");
+        File file = new File("Lecture/Java/chap13-io-lecture-source/src/main/java/com/ohgiraffers/section04/assignment/db/memberDB.dat");
         if (!file.exists()) {
             ArrayList<Member> members = new ArrayList<>();
             members.add(new Member(1, "user01", "pass01", 20, new String[]{"발레", "수영"}, BloodType.A));
@@ -45,7 +45,7 @@ public class MemberRepository {
         ObjectOutputStream oos = null;
 
         try {
-            oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("src/main/java/com/ohgiraffers/section04/assignment/db/memberDB.dat")));
+            oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("Lecture/Java/chap13-io-lecture-source/src/main/java/com/ohgiraffers/section04/assignment/db/memberDB.dat")));
 
             /* 설명: 넘어온 회원 수만큼 객체 출력하기 */
             for (Member m : members) {
@@ -71,7 +71,7 @@ public class MemberRepository {
     private void loadMembers() {
         ObjectInputStream ois = null;
         try {
-            ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream("src/main/java/com/ohgiraffers/section04/assignment/db/memberDB.dat")));
+            ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream("Lecture/Java/chap13-io-lecture-source/src/main/java/com/ohgiraffers/section04/assignment/db/memberDB.dat")));
 
             /* 설명: 파일로부터 모든 회원 정보를 읽어 memberList에 추가(add) */
             while (true) {
@@ -120,7 +120,7 @@ public class MemberRepository {
     private int saveMember(Member member) {
         MyObjectOutput moo = null;
         try {
-            moo = new MyObjectOutput(new BufferedOutputStream(new FileOutputStream("src/main/java/com/ohgiraffers/section04/assignment/db/memberDB.dat", true)));
+            moo = new MyObjectOutput(new BufferedOutputStream(new FileOutputStream("Lecture/Java/chap13-io-lecture-source/src/main/java/com/ohgiraffers/section04/assignment/db/memberDB.dat", true)));
             /* 설명: 파일로 객체 하나 출력하기 */
             moo.writeObject(member);
             /* 설명: repository의 memberList에도 추가 */
