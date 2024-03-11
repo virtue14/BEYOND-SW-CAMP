@@ -1,0 +1,18 @@
+# application 실행 시마다 port를 지정해서 할당하지 않고 자동 생성 하려면 server.prot를 0으로 둔다
+# (하지만 instance_id가 port:0으로 동일해 eureka server에는 하나의 인스턴스로만 뜨기 때문에 아래에서 instance-id를 지정한다.)
+server:
+  port: 0
+
+spring:
+  application:
+    name: my-1st-service
+
+eureka:
+  # 랜덤한 instance-id 부여
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
