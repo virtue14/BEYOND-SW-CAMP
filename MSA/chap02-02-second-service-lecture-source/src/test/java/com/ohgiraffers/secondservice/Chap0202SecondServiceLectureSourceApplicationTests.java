@@ -1,10 +1,10 @@
-package org.ohgiraffers.autoconfiguration;
+package com.ohgiraffers.secondservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Chap01AutoConfigurationLectureSourceApplicationTests {
+class Chap0202SecondServiceLectureSourceApplicationTests {
 
     @Test
     void contextLoads() {
