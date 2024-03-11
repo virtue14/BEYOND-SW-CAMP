@@ -1,10 +1,10 @@
-package org.ohgiraffers.chap02requestmappinglecturesource;
+package com.ohgiraffers.gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Chap02RequestMappingLectureSourceApplicationTests {
+class Chap03SpringCloudGatewayLectureSourceApplicationTests {
 
     @Test
     void contextLoads() {

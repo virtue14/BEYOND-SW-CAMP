@@ -1,0 +1,98 @@
+server:
+  port: 8000
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+#spring:
+#  application:
+#    name: gateway-server
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: 1st-service
+#          #          uri: http://localhost:64172/
+#          # ?????(???? ???? ???? ???? ???)?? ??, ??? ? ??(uri)
+#          uri: lb://MY-1ST-SERVICE
+#
+#          # ??? ?????? ?? ??? '/first-service/**? ????~'?? ??
+#          predicates:
+#            - Path=/first-service/**
+#
+#          # Global, Custom ?? ??? ???? ??(request ? response header? ? ??, segment? ??? ?? ??)
+#          filters:
+#            - AddRequestHeader=first-request, first-request-header
+#            - AddResponseHeader=first-response, first-response-header
+#            - RewritePath=/first-service/(?<segment>.*), /$\{segment}
+#        - id: 2nd-service
+#          #          uri: http://localhost:64159/
+#          uri: lb://MY-2ND-SERVICE
+#          predicates:
+#            - Path=/second-service/**
+#          filters:
+#            - AddRequestHeader=second-request, second-request-header
+#            - AddResponseHeader=second-response, second-response-header
+#            - RewritePath=/second-service/(?<segment>.*), /$\{segment}
+
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      routes:
+#        - id: user-service
+#          uri: lb://SWCAMP-USER-SERVICE
+#          predicates:
+#            - Path=/user-service/**
+#          filters:
+#            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+
+    # 회원 가입 이후 로드 밸런싱
+      - id: user-service
+        uri: lb://SWCAMP-USER-SERVICE
+        predicates:
+          - Path=/user-service/actuator/**
+          - Method=POST
+        filters:
+          - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+#          - AuthorizationHeaderFilter
+
+      - id: user-service
+        uri: lb://SWCAMP-USER-SERVICE
+        predicates:
+          - Path=/user-service/**
+          - Method=GET
+        filters:
+          - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+          # 현재 상황의 라우팅에서 토큰을 들고와서 요청하는지 판단하기 위한 필터
+          - AuthorizationHeaderFilter
+
+      - id: user-service
+        uri: lb://SWCAMP-USER-SERVICE
+        predicates:
+          - Path=/user-service/users
+          - Method=POST
+        filters:
+          - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+
+      - id: user-service
+        uri: lb://SWCAMP-USER-SERVICE
+        predicates:
+          - Path=/user-service/login
+          - Method=POST
+        filters:
+          - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+
+      # 주문 관련 도메인(마이크로 서비스) 서버 추가 후
+      - id: order-service
+        uri: lb://SWCAMP-ORDER-SERVICE
+        predicates:
+          - Path=/order-service/**
+        filters:
+          - RewritePath=/order-service/(?<segment>.*), /$\{segment}
+
+token:
+  secret: l1Z5I9WufSD5qM0UTHXDJa1kaGxBlyhKMbx+ONkqzeRTlKdF8Bq37mA3Z8nhjRlwVUrL/u3bdkFeamIrUoWvVw==
