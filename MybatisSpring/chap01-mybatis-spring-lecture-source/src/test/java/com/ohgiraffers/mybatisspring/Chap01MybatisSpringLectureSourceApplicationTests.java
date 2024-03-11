@@ -1,10 +1,10 @@
-package org.ohgiraffers.viewresolver;
+package com.ohgiraffers.mybatisspring;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Chap04ViewResolverLectureSourceApplicationTests {
+class Chap01MybatisSpringLectureSourceApplicationTests {
 
     @Test
     void contextLoads() {
