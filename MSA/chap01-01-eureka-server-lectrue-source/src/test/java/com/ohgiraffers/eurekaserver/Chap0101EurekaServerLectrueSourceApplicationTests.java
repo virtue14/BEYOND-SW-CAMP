@@ -1,10 +1,10 @@
-package org.ohgiraffers.handlermethod;
+package com.ohgiraffers.eurekaserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Chap03HandlerMethodLectureSourceApplicationTests {
+class Chap0101EurekaServerLectrueSourceApplicationTests {
 
     @Test
     void contextLoads() {
