@@ -75,7 +75,7 @@ public class ResponseRestController {
     /* 설명. prdocues는 response header의 content-type 설정이다. */
     @GetMapping(value = "/image", produces = MediaType.IMAGE_JPEG_VALUE)
     public byte[] getImage() throws IOException {
-        return getClass().getResourceAsStream("/static/pikachu.jpeg").readAllBytes();
+        return getClass().getResourceAsStream("/static/고라악파덕.png").readAllBytes();
     }
 
     /* 설명. ResponseEntity는 필수는 아니지만 유용하게 사용할 수 있다. */
