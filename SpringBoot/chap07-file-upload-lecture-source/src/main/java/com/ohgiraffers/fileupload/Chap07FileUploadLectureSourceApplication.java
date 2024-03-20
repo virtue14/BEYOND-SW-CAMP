@@ -1,4 +1,4 @@
-package org.ohgiraffers.fileupload;
+package com.ohgiraffers.fileupload;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
