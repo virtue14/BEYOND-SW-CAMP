@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 
-/* 설명: DML(insert, update, delete) 작업 테스트 시 실제 DB 적용을 안 하려면 @Transactional 어노테이션을 추가한다. */
+/* 설명. DML(insert, update, delete) 작업 테스트 시 실제 DB 적용을 안 하려면 @Transactional 어노테이션을 추가한다. */
 //@Transactional
 class OrderServiceTest {
 

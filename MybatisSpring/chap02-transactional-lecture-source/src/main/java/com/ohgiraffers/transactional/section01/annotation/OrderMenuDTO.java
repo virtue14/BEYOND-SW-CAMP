@@ -1,8 +1,9 @@
 package com.ohgiraffers.transactional.section01.annotation;
 
 public class OrderMenuDTO {
-    private int menuCode;
-    private int orderAmount;
+
+    private int menuCode;           // 고른 메뉴 번호
+    private int orderAmount;        // 고른 메뉴의 갯수
 
     public OrderMenuDTO() {
     }
