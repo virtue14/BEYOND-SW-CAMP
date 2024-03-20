@@ -13,22 +13,19 @@ public class Application {
 
         String resource = "mybatis-config.xml";
 
-        InputStream inputStream;
+        try {
+            InputStream inputStream = Resources.getResourceAsStream(resource);
 
-        {
-            try {
-                inputStream = Resources.getResourceAsStream(resource);
+            SqlSessionFactory sqlSessionFactory
+                    = new SqlSessionFactoryBuilder().build(inputStream);
+            SqlSession session = sqlSessionFactory.openSession(false);
 
-                SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+            java.util.Date date = session.selectOne("mapper.selectNow");
+            System.out.println("date = " + date);
 
-                SqlSession session = sqlSessionFactory.openSession(false);
-
-                java.util.Date date = session.selectOne("mapper.selectNow");
-                System.out.println("date = " + date);
-                session.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            session.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

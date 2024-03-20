@@ -5,6 +5,6 @@
 <mapper namespace="mapper">
     <select id="selectNow" resultType="java.util.Date">
         SELECT
-              NOW()
+               NOW()
     </select>
 </mapper>
