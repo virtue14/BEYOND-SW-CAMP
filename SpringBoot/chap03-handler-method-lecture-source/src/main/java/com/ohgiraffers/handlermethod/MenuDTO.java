@@ -1,4 +1,4 @@
-package org.ohgiraffers.handlermethod;
+package com.ohgiraffers.handlermethod;
 
 public class MenuDTO {
     private String name;
@@ -6,14 +6,14 @@ public class MenuDTO {
     private int categoryCode;
     private String orderableStatus;
 
+    public MenuDTO() {
+    }
+
     public MenuDTO(String name, int price, int categoryCode, String orderableStatus) {
         this.name = name;
         this.price = price;
         this.categoryCode = categoryCode;
         this.orderableStatus = orderableStatus;
-    }
-
-    public MenuDTO() {
     }
 
     public String getName() {
