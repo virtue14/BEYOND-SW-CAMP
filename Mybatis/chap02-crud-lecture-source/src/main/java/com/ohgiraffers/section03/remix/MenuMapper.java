@@ -11,5 +11,5 @@ public interface MenuMapper {
 
     int updateMenu(MenuDTO menu);
 
-    int removeMenu(int menuCode);
+    int deleteMenu(int menuCode);
 }

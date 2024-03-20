@@ -28,6 +28,7 @@ public class Template {
             Configuration configuration = new Configuration(environment);
 
             /* 설명. Mapper용 인터페이스를 추가한다. */
+//            configuration.getTypeAliasRegistry().registerAlias("MenuDTO", MenuDTO.class);
             configuration.addMapper(MenuMapper.class);
 
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
