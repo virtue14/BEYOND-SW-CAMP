@@ -2,7 +2,7 @@ package com.ohgiraffers.section01.xml;
 
 public class SearchCriteria {
     private String condition;       // 검색조건
-    private String value;           // 검색
+    private String value;           // 검색어
 
     public SearchCriteria() {
     }

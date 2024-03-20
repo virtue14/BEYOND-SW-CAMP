@@ -18,10 +18,8 @@ public class MenuDTO {
         this.orderableStatus = orderableStatus;
     }
 
-
-    /* 설명 1. mybatis는 사실 getter, setter가 없어도 자바의 리플렉션 기술을 활용해 필드에 접근한다. */
-    /* 설명 2. spring의 controller에서 command 객체로도 사용되므로 실제 구현 시에는 getter, setter를 만들어 쓰자 */
-
+    /* 설명. mybatis는 사실 getter, setter가 없어도 자바의 리플렉션 기술을 활용해 필드에 접근한다. */
+    /* 설명. spring의 controller에서 command 객체로도 사용되므로 실제 구현 시에는 getter, setter를 만들어 쓰자. */
 
     @Override
     public String toString() {

@@ -10,9 +10,9 @@ public interface MenuMapper {
 
     List<MenuDTO> searchMenuBySupCategory(SearchCriteria searchCriteria);
 
-    List<MenuDTO> searchMenuByRandomMenuCode(List ramdomList);
+    List<MenuDTO> searchMenuByRandomMenuCode(List randomList);
 
-    List<MenuDTO> searchMenuByCoderOrSearchAll(SearchCriteria searchCriteria);
+    List<MenuDTO> searchMenuByCodeOrSearchAll(SearchCriteria searchCriteria);
 
     List<MenuDTO> searchMenuByNameOrCategory(Map<String, Object> criteria);
 
