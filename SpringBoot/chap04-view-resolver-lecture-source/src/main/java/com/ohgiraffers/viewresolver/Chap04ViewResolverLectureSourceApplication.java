@@ -1,4 +1,4 @@
-package org.ohgiraffers.viewresolver;
+package com.ohgiraffers.viewresolver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
