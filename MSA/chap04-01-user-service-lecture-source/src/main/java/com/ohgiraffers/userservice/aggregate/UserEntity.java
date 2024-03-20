@@ -3,25 +3,21 @@ package com.ohgiraffers.userservice.aggregate;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.UUID;
-
 @Data
 @Entity
-@Table(name = "tbl_user")
+@Table(name = "tbl_member")
 public class UserEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 80, unique = true)
+    @Column(nullable = false, length = 50, unique = true)
     private String email;
-
-    @Column(nullable = false, length = 21)
+    @Column(nullable = false, length = 50)
     private String name;
-
     @Column(nullable = false, unique = true)
     private String userId;
-
     @Column(nullable = false, unique = true)
     private String encryptedPwd;
 }

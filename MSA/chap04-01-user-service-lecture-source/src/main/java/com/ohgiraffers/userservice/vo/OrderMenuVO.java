@@ -1,8 +1,12 @@
 package com.ohgiraffers.userservice.vo;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class OrderMenuVO {
     private int orderCode;
     private int menuCode;

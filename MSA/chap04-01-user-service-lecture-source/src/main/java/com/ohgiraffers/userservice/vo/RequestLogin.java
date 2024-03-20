@@ -1,8 +1,12 @@
 package com.ohgiraffers.userservice.vo;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class RequestLogin {
     private String email;
     private String password;

@@ -1,0 +1,10 @@
+### Send POST request with json body
+POST http://kys:51737/users
+Content-Type: application/json
+
+{
+  "name": "홍길동",
+  "email": "test@gmail.com",
+  "pwd": "pass01"
+}
+
