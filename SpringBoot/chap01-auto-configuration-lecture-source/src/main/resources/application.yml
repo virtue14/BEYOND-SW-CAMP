@@ -6,6 +6,3 @@ test:
   value: hell world!
   age: 10
   array: 안녕, 반가워
-
-server:
-  port: 8888
