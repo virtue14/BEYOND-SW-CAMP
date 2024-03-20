@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.ohgiraffers.section01.xmlmapper.ElementMapper">
-    <resultMap id="menuResultMap1" type="com.ohgiraffers.section01.xmlmapper.MenuDTO" autoMapping="false">
+    <resultMap id="menuResultMap1" type="com.ohgiraffers.section01.xmlmapper.MenuDTO"
+                                                                      autoMapping="false">
         <id property="menuCode" column="MENU_CODE"/>
         <result property="menuName" column="MENU_NAME"/>
         <result property="menuPrice" column="MENU_PRICE"/>
@@ -20,29 +20,24 @@
              , A.MENU_PRICE
              , A.CATEGORY_CODE
              , A.ORDERABLE_STATUS
-          FROM tbl_menu A
+          FROM TBL_MENU A
          WHERE A.ORDERABLE_STATUS = 'Y'
     </select>
 
-    <!-- 설명: Association 방법 1 -->
-<!--
-    <resultMap id="menuAndCategoryResultMap" type="com.ohgiraffers.section01.xmlmapper.MenuANDCategoryDTO">
-        <id property="menuCode" column="MENU_CODE"/>
-        <result property="menuName" column="MENU_NAME"/>
-        <result property="menuPrice" column="MENU_PRICE"/>
-        <result property="orderableStatus" column="ORDERABLE_STATUS"/>
-        <association property="category" resultMap="categoryResultMap"/>
-    </resultMap>
+<!--    <resultMap id="menuAndCategoryResultMap" type="com.ohgiraffers.section01.xmlmapper.MenuAndCategoryDTO">-->
+<!--        <id property="menuCode" column="MENU_CODE"/>-->
+<!--        <result property="menuName" column="MENU_NAME"/>-->
+<!--        <result property="menuPrice" column="MENU_PRICE"/>-->
+<!--        <result property="orderableStatus" column="ORDERABLE_STATUS"/>-->
+<!--        <association property="category" resultMap="categoryResultMap"/>-->
+<!--    </resultMap>-->
+<!--    <resultMap id="categoryResultMap" type="com.ohgiraffers.section01.xmlmapper.CategoryDTO">-->
+<!--        <id property="categoryCode" column="CATEGORY_CODE"/>-->
+<!--        <result property="categoryName" column="CATEGORY_NAME"/>-->
+<!--        <result property="refCategoryCode" column="REF_CATEGORY_CODE"/>-->
+<!--    </resultMap>-->
 
-    <resultMap id="categoryResultMap" type="com.ohgiraffers.section01.xmlmapper.CategoryDTO">
-        <id property="categoryCode" column="CATEGORY_CODE"/>
-        <result property="categoryName" column="CATEGORY_NAME"/>
-        <result property="refCategoryCode" column="REF_CATEGORY_CODE"/>
-    </resultMap>
--->
-
-    <!-- 설명: Association 방법 2 -->
-    <resultMap id="menuAndCategoryResultMap" type="com.ohgiraffers.section01.xmlmapper.MenuANDCategoryDTO">
+    <resultMap id="menuAndCategoryResultMap" type="com.ohgiraffers.section01.xmlmapper.MenuAndCategoryDTO">
         <id property="menuCode" column="MENU_CODE"/>
         <result property="menuName" column="MENU_NAME"/>
         <result property="menuPrice" column="MENU_PRICE"/>
@@ -54,7 +49,6 @@
         </association>
     </resultMap>
 
-
     <select id="selectResultMapAssociationTest" resultMap="menuAndCategoryResultMap">
         SELECT
                A.MENU_CODE
@@ -64,30 +58,25 @@
              , B.CATEGORY_NAME
              , B.REF_CATEGORY_CODE
              , A.ORDERABLE_STATUS
-          FROM tbl_menu A
-          JOIN tbl_category B ON(A.CATEGORY_CODE = B.CATEGORY_CODE)
+          FROM TBL_MENU A
+          JOIN TBL_CATEGORY B ON (A.CATEGORY_CODE = B.CATEGORY_CODE)
          WHERE A.ORDERABLE_STATUS = 'Y'
     </select>
 
-    <!-- 설명: Collection 방법 1 -->
-<!--
-        <resultMap id="categoryAndMenuResultMap" type="com.ohgiraffers.section01.xmlmapper.CategoryAndMenuDTO">
-        <id property="categoryCode" column="CATEGORY_CODE"/>
-        <result property="categoryName" column="CATEGORY_NAME"/>
-        <result property="refCategoryCode" column="REF_CATEGORY_CODE"/>
-        <collection property="menus" resultMap="menuResultMap"/>
-    </resultMap>
+<!--    <resultMap id="categoryAndMenuResultMap" type="com.ohgiraffers.section01.xmlmapper.CategoryAndMenuDTO">-->
+<!--        <id property="categoryCode" column="CATEGORY_CODE"/>-->
+<!--        <result property="categoryName" column="CATEGORY_NAME"/>-->
+<!--        <result property="refCategoryCode" column="REF_CATEGORY_CODE"/>-->
+<!--        <collection property="menus" resultMap="menuResultMap"/>-->
+<!--    </resultMap>-->
+<!--    <resultMap id="menuResultMap" type="com.ohgiraffers.section01.xmlmapper.MenuDTO">-->
+<!--        <id property="menuCode" column="MENU_CODE"/>-->
+<!--        <result property="menuName" column="MENU_NAME"/>-->
+<!--        <result property="menuPrice" column="MENU_PRICE"/>-->
+<!--        <result property="categoryCode" column="CATEGORY_CODE"/>-->
+<!--        <result property="orderableStatus" column="ORDERABLE_STATUS"/>-->
+<!--    </resultMap>-->
 
-    <resultMap id="menuResultMap" type="com.ohgiraffers.section01.xmlmapper.MenuDTO">
-        <id property="menuCode" column="MENU_CODE"/>
-        <result property="menuName" column="MENU_NAME"/>
-        <result property="menuPrice" column="MENU_PRICE"/>
-        <result property="categoryCode" column="CATEGORY_CODE"/>
-        <result property="orderableStatus" column="ORDERABLE_STATUS"/>
-    </resultMap>
--->
-
-    <!-- 설명: Collection 방법 2 -->
     <resultMap id="categoryAndMenuResultMap" type="com.ohgiraffers.section01.xmlmapper.CategoryAndMenuDTO">
         <id property="categoryCode" column="CATEGORY_CODE"/>
         <result property="categoryName" column="CATEGORY_NAME"/>
@@ -100,7 +89,6 @@
             <result property="orderableStatus" column="ORDERABLE_STATUS"/>
         </collection>
     </resultMap>
-
     <select id="selectResultMapCollectionTest" resultMap="categoryAndMenuResultMap">
         SELECT
                A.CATEGORY_CODE
@@ -111,8 +99,8 @@
              , B.MENU_PRICE
              , B.CATEGORY_CODE
              , B.ORDERABLE_STATUS
-          FROM tbl_category A
-          LEFT JOIN tbl_menu B ON(A.CATEGORY_CODE = B.CATEGORY_CODE)
+          FROM TBL_CATEGORY A
+          LEFT JOIN TBL_MENU B ON (A.CATEGORY_CODE = B.CATEGORY_CODE)
          ORDER BY A.CATEGORY_CODE
     </select>
 </mapper>
