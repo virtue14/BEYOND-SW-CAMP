@@ -8,14 +8,16 @@ import static com.ohgiraffers.section02.javaconfig.Template.getSqlSession;
 
 public class MenuService {
 
-    /* 설명: DAO에 해당하는 클래스 대신 인터페이스가 온다. */
+    /* 설명. DAO에 해당하는 클래스 대신 인터페이스가 온다. */
     private MenuMapper menuMapper;
 
     public List<MenuDTO> findAllMenus() {
         SqlSession sqlSession = getSqlSession();
 
-        /* 설명: SqlSession을 활용해서 인터페이스의 하위 구현체(DAO에 해당하는 객체)를 만들어 쿼리를 실행 */
-
+        /* 설명.
+         *  SqlSession을 활용해서 인터페이스의 하위 구현체(DAO에 해당하는 객체)를 만들어
+         *  쿼리를 실행
+        * */
         menuMapper = sqlSession.getMapper(MenuMapper.class);
         List<MenuDTO> menuList = menuMapper.selectAllMenus();
 

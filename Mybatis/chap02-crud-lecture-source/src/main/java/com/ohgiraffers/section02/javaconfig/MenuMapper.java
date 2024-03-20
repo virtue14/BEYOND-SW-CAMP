@@ -6,43 +6,38 @@ import java.util.List;
 
 public interface MenuMapper {
 
-    @Results(id = "menuResultMap", value = {
+    @Results(id="menuResultMap", value = {
             @Result(id = true, property = "menuCode", column = "MENU_CODE"),
             @Result(property = "menuName", column = "MENU_NAME"),
             @Result(property = "menuPrice", column = "MENU_PRICE"),
             @Result(property = "categoryCode", column = "CATEGORY_CODE"),
             @Result(property = "orderableStatus", column = "ORDERABLE_STATUS")
     })
-
-    @Select("""
-                    SELECT
-                    MENU_CODE
-                    , MENU_NAME
-                    , MENU_PRICE
-                    , CATEGORY_CODE
-                    , ORDERABLE_STATUS
-                    FROM tbl_menu
-            """)
+    @Select("SELECT\n" +
+            "       MENU_CODE\n" +
+            "     , MENU_NAME\n" +
+            "     , MENU_PRICE\n" +
+            "     , CATEGORY_CODE\n" +
+            "     , ORDERABLE_STATUS\n" +
+            "  FROM TBL_MENU")
     List<MenuDTO> selectAllMenus();
 
-    @Select("""
-                    SELECT
-                    MENU_CODE
-                    , MENU_NAME
-                    , MENU_PRICE
-                    , CATEGORY_CODE
-                    , ORDERABLE_STATUS
-                    FROM tbl_menu
-                    WHERE MENU_CODE = #{menuCode}
-            """)
+    @Select("SELECT\n" +
+            "               MENU_CODE\n" +
+            "             , MENU_NAME\n" +
+            "             , MENU_PRICE\n" +
+            "             , CATEGORY_CODE\n" +
+            "             , ORDERABLE_STATUS\n" +
+            "          FROM TBL_MENU\n" +
+            "         WHERE MENU_CODE = #{menuCode}")
     @ResultMap("menuResultMap")
     MenuDTO selectMenu(int menuCode);
 
     @Insert("""
-                    INSERT
-                    INTO tbl_menu
+            INSERT
+                      INTO TBL_MENU
                     (
-                    MENU_NAME
+                      MENU_NAME
                     , MENU_PRICE
                     , CATEGORY_CODE
                     , ORDERABLE_STATUS
@@ -56,9 +51,10 @@ public interface MenuMapper {
                     )
             """)
     int insertMenu(MenuDTO menu);
+
     @Update("""
-                    UPDATE
-                           tbl_menu
+            UPDATE
+                           TBL_MENU
                        SET MENU_NAME = #{menuName}
                          , MENU_PRICE = #{menuPrice}
                      WHERE MENU_CODE = #{menuCode}
@@ -66,9 +62,10 @@ public interface MenuMapper {
     int updateMenu(MenuDTO menu);
 
     @Delete("""
-                    DELETE
-                      FROM tbl_menu
+            DELETE
+                      FROM TBL_MENU
                      WHERE MENU_CODE = #{menuCode}
             """)
     int deleteMenu(int menuCode);
+
 }
