@@ -17,6 +17,7 @@ dependencies {
     implementation 'org.mybatis:mybatis:3.5.6'
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     implementation 'mysql:mysql-connector-java:8.0.28'
+
 }
 
 test {
