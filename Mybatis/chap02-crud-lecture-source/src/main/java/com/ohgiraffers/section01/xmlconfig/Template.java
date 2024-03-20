@@ -9,19 +9,20 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class Template {
-    public static SqlSessionFactory sqlSessionFactory;
-    public static SqlSession getSqlSession() {
-        if (sqlSessionFactory == null) {
-            String resource = "com/ohgiraffers/section01/xmlconfig/mybatis-config.xml";
 
+    private static SqlSessionFactory sqlSessionFactory;
+
+    public static SqlSession getSqlSession() {
+        if(sqlSessionFactory == null) {
+            String resource = "com/ohgiraffers/section01/xmlconfig/mybatis-config.xml";
             try {
                 InputStream inputStream = Resources.getResourceAsStream(resource);
                 sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
         }
+
         return sqlSessionFactory.openSession(false);
     }
 }

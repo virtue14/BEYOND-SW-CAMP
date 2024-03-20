@@ -3,9 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
     <typeAliases>
         <typeAlias type="com.ohgiraffers.section01.xmlconfig.MenuDTO" alias="MenuDTO"/>
     </typeAliases>
+
     <environments default="dev">
         <environment id="dev">
             <transactionManager type="JDBC"/>
