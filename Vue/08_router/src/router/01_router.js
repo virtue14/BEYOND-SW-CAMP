@@ -14,6 +14,8 @@ const router = createRouter({
         {
             path: '/pathvariable/:id',
             component: PathVariable
+            /* lazy loaded: 코드를 분할(청크)해서 필요할 때만 코드를 로딩하여 메모리 사용량 및 성능 향상 목척(코드 스플리팅) */
+            // components: () => import("@/views/01_router/PathVariable.vue")
         },
         {
             path: '/querystring',
